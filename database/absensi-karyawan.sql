@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jun 06, 2022 at 05:31 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- Host: 127.0.0.1
+-- Generation Time: Jul 10, 2023 at 02:02 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,15 +40,16 @@ CREATE TABLE `tb_absensi` (
   `urlPulang` text NOT NULL,
   `jenis` varchar(32) NOT NULL,
   `keterangan` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tb_absensi`
 --
 
 INSERT INTO `tb_absensi` (`id`, `idUser`, `tanggal`, `fotoMasuk`, `fotoPulang`, `jamMasuk`, `jamPulang`, `lama`, `urlMasuk`, `urlPulang`, `jenis`, `keterangan`) VALUES
-(1, 2, '2022-06-04', 'Foto-1654484814.jpg', 'Foto-1654484855.jpeg', '10:06:54', '10:07:35', '00:00:41', 'https://maps.google.com/maps?&z=15&mrt=yp&t=k&q=-7.7405+110.2427', 'https://maps.google.com/maps?&z=15&mrt=yp&t=k&q=-7.7405+110.2427', 'Absen', ''),
-(2, 2, '2022-06-05', '', '', '10:08:03', '00:00:00', '00:00:00', '', '', 'Lainnya', 'Ijin Sakit');
+(2, 3, '2023-07-06', 'Foto-1688652663.png', 'Foto-1688652671.png', '21:11:03', '21:11:11', '00:00:08', 'https://maps.google.com/maps?&z=15&mrt=yp&t=k&q=1.1365563+104.0413272', 'https://maps.google.com/maps?&z=15&mrt=yp&t=k&q=1.1277742+104.0124045', '', ''),
+(3, 5, '2023-07-06', 'Foto-1688652725.png', 'Foto-1688652730.png', '21:12:05', '21:12:10', '00:00:05', 'https://maps.google.com/maps?&z=15&mrt=yp&t=k&q=1.1277742+104.0124045', 'https://maps.google.com/maps?&z=15&mrt=yp&t=k&q=1.1277742+104.0124045', '', ''),
+(4, 8, '2023-07-06', 'Foto-1688654461.jpg', 'Foto-1688654507.jpg', '21:41:01', '21:41:47', '00:00:46', 'https://maps.google.com/maps?&z=15&mrt=yp&t=k&q=1.1277868+104.0123677', 'https://maps.google.com/maps?&z=15&mrt=yp&t=k&q=1.1365563+104.0413272', '', '');
 
 -- --------------------------------------------------------
 
@@ -63,14 +64,14 @@ CREATE TABLE `tb_aplikasi` (
   `email` varchar(256) NOT NULL,
   `alamat` text NOT NULL,
   `logo` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tb_aplikasi`
 --
 
 INSERT INTO `tb_aplikasi` (`id`, `nama`, `telp`, `email`, `alamat`, `logo`) VALUES
-(1, 'Absensi Karyawan | Oscar Store', '089618367556', 'nurmuhaidi@gmail.com', 'Ngasem Candi Rt. 03 Rw. 01 Kec. Batealit Kab. Jepara', '');
+(1, 'Absensi Karyawan By DEDDY', '081275912634', 'Deddyzhang00@gmail.com', 'BATAM, KEPULAUAN RIAU, INDONESIA', '');
 
 -- --------------------------------------------------------
 
@@ -89,15 +90,20 @@ CREATE TABLE `tb_user` (
   `skin` varchar(8) NOT NULL,
   `level` varchar(16) NOT NULL,
   `terdaftar` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tb_user`
 --
 
 INSERT INTO `tb_user` (`id`, `nama`, `telp`, `email`, `username`, `password`, `foto`, `skin`, `level`, `terdaftar`) VALUES
-(1, 'Nur Muhaidi', '089618367556', 'nurmuhaidi@gmail.com', 'admin', '$2y$10$O13Nf/lZ8DtJJdh0FKsmJu8z8AJQaxNwhcg0v0PAyQ34UGdqQPlw.', 'no-image.png', 'green', 'Administrator', '2022-03-25 22:34:57'),
-(2, 'Muhammad Ikhsanuddin', '089618367556', 'nurmuhaidi@gmail.com', 'ikhsan', '$2y$10$Mxhp8KuDcMf5ar2cdTIx0OA6AgRx3hKgwWJAMvEnfXPUT3i8uuuSi', 'no-image.png', 'yellow', 'Karyawan', '2022-03-30 15:02:54');
+(1, 'Deddy', '081275912634', 'Deddyzhang00@gmail.com', 'Deddy', '$2y$10$NlE8Ybb3BHHh.Sn1iNeOleP9yR7xhnjPGx2uJyCLTHrlkvSrF2opK', 'Profil-1683634330.jpg', 'red', 'Administrator', '2023-05-06 22:34:57'),
+(3, 'Novrianto', '08136543201', 'Novrianto@gmail.com', 'Novrianto', '$2y$10$rZIkSID4ClZqWUAkr0gpcuekPG2NtaoBEsWucVaBhaSBokTH7.PJ2', 'no-image.png', 'purple', 'Karyawan', '2023-05-07 14:48:33'),
+(4, 'Yanto', '085264544884', 'Yanto@gmail.com', 'Yanto', '$2y$10$9TRnJP8hvIHpSkCgqTXwAun1JfHK3NPhhzI0g60wWoGhnGVSwaGCe', 'no-image.png', 'blue', 'Karyawan', '2023-05-09 19:25:45'),
+(5, 'Yandi Sasanaputra', '082169729227', 'Yandi@gmail.com', 'Yandisasanaputra', '$2y$10$m/uHwdoyEraQPUzEC0T2uOmpjtNzHNRgWDpaZnwTdiKePYP7Tea8C', 'no-image.png', 'blue', 'Karyawan', '2023-05-09 19:27:16'),
+(6, 'Agustian', '085668529229', 'Agustian@gmail.com', 'Agustian', '$2y$10$OqCxBXB3dnCgt/5CGGnwve.s7ncQi/IPN0f5hEf9oxNX.jMK5G8Xu', 'no-image.png', 'blue', 'Karyawan', '2023-05-09 19:27:51'),
+(7, 'Augustinus Tiodora', '085211922222', 'Augustinus@gmail.com', 'Augustinus', '$2y$10$Y7Z3fSXjcfO.eAo1IUK44.5yFblyFTmkEBvPZibc0iPd356xeYEG2', 'no-image.png', 'blue', 'Karyawan', '2023-05-09 19:28:24'),
+(8, 'Deddy', '08123456789', 'Deddy@gmail.com', 'Deddy1', '$2y$10$F9Utfz5PWor8jj5waV.Qp.wR9jfyXYjNduaeDR1pHTJgHhEnY/T/O', 'Profil-1688654387.jpg', 'green', 'Karyawan', '2023-07-06 21:37:39');
 
 --
 -- Indexes for dumped tables
@@ -130,7 +136,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_absensi`
 --
 ALTER TABLE `tb_absensi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_aplikasi`
@@ -142,7 +148,7 @@ ALTER TABLE `tb_aplikasi`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
